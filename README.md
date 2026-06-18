@@ -2,6 +2,8 @@
 
 A small [SwiftBar](https://github.com/swiftbar/SwiftBar) plugin for macOS that shows internet connectivity and the current external IP address in the menu bar.
 
+Developer: Igor Safronov
+
 ## What it does
 
 - Shows online/offline status in the menu bar.

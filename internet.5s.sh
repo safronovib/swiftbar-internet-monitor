@@ -4,6 +4,7 @@ PLUGIN_DIR="$HOME/Documents/SwiftBar"
 DATA_DIR="$HOME/Documents/SwiftBarData"
 REPOSITORY_URL="https://github.com/safronovib/swiftbar-internet-monitor"
 VERSION="1.1.0"
+DEVELOPER="Igor Safronov"
 LOGFILE="$DATA_DIR/internet.log"
 STATUSFILE="$DATA_DIR/internet_status.txt"
 IPFILE="$DATA_DIR/internet_ip.txt"
@@ -55,8 +56,8 @@ t() {
       open_data_folder) echo "Открыть папку данных" ;;
       open_plugin_folder) echo "Открыть папку плагина" ;;
       open_github) echo "Открыть GitHub" ;;
-      about) echo "О программе" ;;
-      about_message) echo "SwiftBar Internet Monitor\nВерсия: $VERSION\n\nПоказывает статус интернета и внешний IP в строке меню.\n\nДанные: $DATA_DIR\nGitHub: $REPOSITORY_URL" ;;
+      about) echo "О плагине" ;;
+      about_message) echo "SwiftBar Internet Monitor\nВерсия: $VERSION\nРазработчик: $DEVELOPER\n\nПоказывает статус интернета и внешний IP в строке меню.\n\nДанные: $DATA_DIR\nGitHub: $REPOSITORY_URL" ;;
     esac
   else
     case "$KEY" in
@@ -75,8 +76,8 @@ t() {
       open_data_folder) echo "Open data folder" ;;
       open_plugin_folder) echo "Open plugin folder" ;;
       open_github) echo "Open GitHub" ;;
-      about) echo "About" ;;
-      about_message) echo "SwiftBar Internet Monitor\nVersion: $VERSION\n\nShows internet status and external IP in the menu bar.\n\nData: $DATA_DIR\nGitHub: $REPOSITORY_URL" ;;
+      about) echo "About Plugin" ;;
+      about_message) echo "SwiftBar Internet Monitor\nVersion: $VERSION\nDeveloper: $DEVELOPER\n\nShows internet status and external IP in the menu bar.\n\nData: $DATA_DIR\nGitHub: $REPOSITORY_URL" ;;
     esac
   fi
 }
