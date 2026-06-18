@@ -9,6 +9,7 @@ A small [SwiftBar](https://github.com/swiftbar/SwiftBar) plugin for macOS that s
 - Logs startup, status changes, and IP changes.
 - Plays a macOS system sound when the connection goes offline or comes back online.
 - Lets you toggle sounds from the SwiftBar menu.
+- Supports English and Russian menu labels.
 
 ## Installation
 
@@ -39,6 +40,9 @@ This keeps SwiftBar from treating log and state files as plugins. The folder is 
 - `internet_ip.txt`
 - `internet_boot.txt`
 - `internet_sound.txt`
+- `internet_language.txt`
+
+English is used by default. You can switch between English and Russian from the SwiftBar menu.
 
 ## Notes
 
