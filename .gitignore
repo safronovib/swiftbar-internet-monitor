@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+internet_boot.txt
+internet_ip.txt
+internet_sound.txt
+internet_status.txt
+SwiftBarData/
