@@ -2,6 +2,8 @@
 
 PLUGIN_DIR="$HOME/Documents/SwiftBar"
 DATA_DIR="$HOME/Documents/SwiftBarData"
+REPOSITORY_URL="https://github.com/safronovib/swiftbar-internet-monitor"
+VERSION="1.1.0"
 LOGFILE="$DATA_DIR/internet.log"
 STATUSFILE="$DATA_DIR/internet_status.txt"
 IPFILE="$DATA_DIR/internet_ip.txt"
@@ -52,6 +54,9 @@ t() {
       open_log) echo "Открыть лог" ;;
       open_data_folder) echo "Открыть папку данных" ;;
       open_plugin_folder) echo "Открыть папку плагина" ;;
+      open_github) echo "Открыть GitHub" ;;
+      about) echo "О программе" ;;
+      about_message) echo "SwiftBar Internet Monitor\nВерсия: $VERSION\n\nПоказывает статус интернета и внешний IP в строке меню.\n\nДанные: $DATA_DIR\nGitHub: $REPOSITORY_URL" ;;
     esac
   else
     case "$KEY" in
@@ -69,6 +74,9 @@ t() {
       open_log) echo "Open log" ;;
       open_data_folder) echo "Open data folder" ;;
       open_plugin_folder) echo "Open plugin folder" ;;
+      open_github) echo "Open GitHub" ;;
+      about) echo "About" ;;
+      about_message) echo "SwiftBar Internet Monitor\nVersion: $VERSION\n\nShows internet status and external IP in the menu bar.\n\nData: $DATA_DIR\nGitHub: $REPOSITORY_URL" ;;
     esac
   fi
 }
@@ -78,6 +86,11 @@ play_sound() {
     afplay "$1" &
   fi
 }
+
+if [ "$1" = "--about" ]; then
+  /usr/bin/osascript -e "display alert \"SwiftBar Internet Monitor\" message \"$(t about_message)\" as informational buttons {\"OK\"} default button \"OK\" giving up after 60"
+  exit 0
+fi
 
 # Last Mac startup time
 BOOT_TIME=$(sysctl -n kern.boottime | sed -E 's/.*sec = ([0-9]+).*/\1/')
@@ -124,6 +137,8 @@ echo "---"
 echo "$(t open_log) | bash='open' param1='$LOGFILE' terminal=false"
 echo "$(t open_data_folder) | bash='open' param1='$DATA_DIR' terminal=false"
 echo "$(t open_plugin_folder) | bash='open' param1='$PLUGIN_DIR' terminal=false"
+echo "$(t open_github) | href='$REPOSITORY_URL'"
+echo "$(t about) | bash='$0' param1='--about' terminal=false"
 
 # Read previous state.
 LAST_STATUS=""
