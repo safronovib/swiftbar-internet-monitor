@@ -16,14 +16,22 @@ Developer: Igor Safronov
 ## Installation
 
 1. Install SwiftBar.
-2. Copy `internet.5s.sh` into your SwiftBar plugin folder.
-3. Make the script executable:
+2. Create a local SwiftBar plugin folder outside iCloud, for example:
+
+   ```bash
+   mkdir -p "$HOME/Library/Application Support/SwiftBarPlugins"
+   ```
+
+3. Copy `internet.5s.sh` into that folder.
+4. Make the script executable:
 
    ```bash
    chmod +x internet.5s.sh
    ```
 
-4. Set SwiftBar to use that plugin folder.
+5. Set SwiftBar to use that plugin folder.
+
+Avoid using an iCloud-synced `Documents` folder as the active SwiftBar plugin folder. macOS can evict small files during startup, which may prevent plugins from running reliably.
 
 The plugin refreshes every 5 seconds because of the `.5s.` part in the filename.
 

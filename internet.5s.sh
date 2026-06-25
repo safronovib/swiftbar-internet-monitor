@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PLUGIN_DIR="$HOME/Documents/SwiftBar"
+PLUGIN_DIR="$(cd "$(dirname "$0")" && pwd)"
 DATA_DIR="$HOME/Library/Application Support/SwiftBarInternetMonitor"
 REPOSITORY_URL="https://github.com/safronovib/swiftbar-internet-monitor"
 VERSION="1.1.0"
