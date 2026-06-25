@@ -32,10 +32,10 @@ The plugin refreshes every 5 seconds because of the `.5s.` part in the filename.
 Runtime data is stored outside the plugin folder:
 
 ```text
-~/Documents/SwiftBarData
+~/Library/Application Support/SwiftBarInternetMonitor
 ```
 
-This keeps SwiftBar from treating log and state files as plugins. The folder is created automatically and stores:
+This keeps SwiftBar from treating log and state files as plugins, and avoids iCloud evicting small state files from `Documents` during startup. The folder is created automatically and stores:
 
 - `internet.log`
 - `internet_status.txt`

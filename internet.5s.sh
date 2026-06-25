@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PLUGIN_DIR="$HOME/Documents/SwiftBar"
-DATA_DIR="$HOME/Documents/SwiftBarData"
+DATA_DIR="$HOME/Library/Application Support/SwiftBarInternetMonitor"
 REPOSITORY_URL="https://github.com/safronovib/swiftbar-internet-monitor"
 VERSION="1.1.0"
 DEVELOPER="Igor Safronov"
@@ -124,16 +124,16 @@ echo "$(t ip): $CURRENT_IP"
 
 if [ "$SOUND_STATUS" = "ON" ]; then
   echo "$(t sound_on)"
-  echo "$(t disable_sound) | bash=/bin/bash param1=-c param2='echo OFF > \"$HOME/Documents/SwiftBarData/internet_sound.txt\"' terminal=false refresh=true"
+  echo "$(t disable_sound) | bash=/bin/bash param1=-c param2='echo OFF > \"$DATA_DIR/internet_sound.txt\"' terminal=false refresh=true"
 else
   echo "$(t sound_off)"
-  echo "$(t enable_sound) | bash=/bin/bash param1=-c param2='echo ON > \"$HOME/Documents/SwiftBarData/internet_sound.txt\"' terminal=false refresh=true"
+  echo "$(t enable_sound) | bash=/bin/bash param1=-c param2='echo ON > \"$DATA_DIR/internet_sound.txt\"' terminal=false refresh=true"
 fi
 
 echo "---"
 echo "$(t language): $LANGUAGE"
-echo "$(t english) | bash=/bin/bash param1=-c param2='echo en > \"$HOME/Documents/SwiftBarData/internet_language.txt\"' terminal=false refresh=true"
-echo "$(t russian) | bash=/bin/bash param1=-c param2='echo ru > \"$HOME/Documents/SwiftBarData/internet_language.txt\"' terminal=false refresh=true"
+echo "$(t english) | bash=/bin/bash param1=-c param2='echo en > \"$DATA_DIR/internet_language.txt\"' terminal=false refresh=true"
+echo "$(t russian) | bash=/bin/bash param1=-c param2='echo ru > \"$DATA_DIR/internet_language.txt\"' terminal=false refresh=true"
 echo "---"
 echo "$(t open_log) | bash='open' param1='$LOGFILE' terminal=false"
 echo "$(t open_data_folder) | bash='open' param1='$DATA_DIR' terminal=false"
