@@ -22,7 +22,7 @@ Developer: Igor Safronov
    mkdir -p "$HOME/Library/Application Support/SwiftBarPlugins"
    ```
 
-3. Copy `internet.5s.sh` into that folder.
+3. Copy only `internet.5s.sh` into that folder.
 4. Make the script executable:
 
    ```bash
@@ -34,6 +34,37 @@ Developer: Igor Safronov
 Avoid using an iCloud-synced `Documents` folder as the active SwiftBar plugin folder. macOS can evict small files during startup, which may prevent plugins from running reliably.
 
 The plugin refreshes every 5 seconds because of the `.5s.` part in the filename.
+
+## Folder Policy
+
+Keep three locations separate:
+
+```text
+Source repository: any development folder, for example ~/Documents/SwiftBar
+Active SwiftBar plugin folder: ~/Library/Application Support/SwiftBarPlugins
+Runtime data folder: ~/Library/Application Support/SwiftBarInternetMonitor
+```
+
+The active SwiftBar plugin folder should contain only executable SwiftBar plugins. For this project, that means:
+
+```text
+internet.5s.sh
+```
+
+Do not put these files in the active SwiftBar plugin folder:
+
+- `README.md`
+- `LICENSE`
+- `.git`
+- `.gitignore`
+- `internet.log`
+- `internet_status.txt`
+- `internet_ip.txt`
+- `internet_boot.txt`
+- `internet_sound.txt`
+- `internet_language.txt`
+
+SwiftBar scans the plugin folder. If extra files become executable, SwiftBar may show confusing duplicate or broken menu items. The plugin never writes runtime files into its own plugin folder.
 
 ## Data Location
 
@@ -53,6 +84,28 @@ This keeps SwiftBar from treating log and state files as plugins, and avoids iCl
 - `internet_language.txt`
 
 English is used by default. You can switch between English and Russian from the SwiftBar menu.
+
+## Quick Checks
+
+Check the active SwiftBar plugin folder:
+
+```bash
+defaults read com.ameba.SwiftBar PluginDirectory
+```
+
+Check that only the plugin script is executable:
+
+```bash
+find "$HOME/Library/Application Support/SwiftBarPlugins" -maxdepth 1 -type f -perm +111 -print
+```
+
+The expected output is:
+
+```text
+/Users/your-name/Library/Application Support/SwiftBarPlugins/internet.5s.sh
+```
+
+If SwiftBar starts showing unexpected menu items, remove non-plugin files from the active plugin folder and disable SwiftBar's automatic executable permission setting.
 
 ## Notes
 

@@ -2,6 +2,8 @@
 
 PLUGIN_DIR="$(cd "$(dirname "$0")" && pwd)"
 DATA_DIR="$HOME/Library/Application Support/SwiftBarInternetMonitor"
+# Keep runtime data outside PLUGIN_DIR. SwiftBar scans the plugin folder and may treat
+# extra executable files there as plugins.
 REPOSITORY_URL="https://github.com/safronovib/swiftbar-internet-monitor"
 VERSION="1.1.0"
 DEVELOPER="Igor Safronov"
